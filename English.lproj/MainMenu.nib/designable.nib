@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="371"/>
+			<integer value="375"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -388,12 +388,6 @@
 			<object class="NSCustomObject" id="589998182">
 				<string key="NSClassName">RyderController</string>
 			</object>
-			<object class="NSUserDefaultsController" id="429182053">
-				<bool key="NSAppliesImmediately">YES</bool>
-			</object>
-			<object class="NSCustomObject" id="686082032">
-				<string key="NSClassName">RyderAppDelegate</string>
-			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -512,19 +506,27 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="686082032"/>
-						<reference key="destination" ref="972006081"/>
+						<string key="label">delegate</string>
+						<reference key="source" ref="1021"/>
+						<reference key="destination" ref="589998182"/>
 					</object>
-					<int key="connectionID">416</int>
+					<int key="connectionID">437</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="1021"/>
-						<reference key="destination" ref="686082032"/>
+						<string key="label">nameButton</string>
+						<reference key="source" ref="589998182"/>
+						<reference key="destination" ref="83925883"/>
 					</object>
-					<int key="connectionID">417</int>
+					<int key="connectionID">438</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="589998182"/>
+						<reference key="destination" ref="972006081"/>
+					</object>
+					<int key="connectionID">439</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -781,11 +783,6 @@
 						<string key="objectName">1</string>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">405</int>
-						<reference key="object" ref="429182053"/>
-						<reference key="parent" ref="1049"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">411</int>
 						<reference key="object" ref="83925883"/>
 						<object class="NSMutableArray" key="children">
@@ -798,11 +795,6 @@
 						<int key="objectID">412</int>
 						<reference key="object" ref="272486983"/>
 						<reference key="parent" ref="83925883"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">415</int>
-						<reference key="object" ref="686082032"/>
-						<reference key="parent" ref="1049"/>
 					</object>
 				</object>
 			</object>
@@ -869,10 +861,8 @@
 					<string>383.IBViewIntegration.shadowOffsetHeight</string>
 					<string>383.IBViewIntegration.shadowOffsetWidth</string>
 					<string>388.IBPluginDependency</string>
-					<string>405.IBPluginDependency</string>
 					<string>411.IBPluginDependency</string>
 					<string>412.IBPluginDependency</string>
-					<string>415.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -959,8 +949,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -1000,7 +988,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">417</int>
+			<int key="maxID">439</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1011,18 +999,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RyderAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">window</string>
-						<string key="NS.object.0">NSWindow</string>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">RyderAppDelegate.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1047,11 +1023,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>nameButton</string>
 							<string>nameView</string>
+							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSButton</string>
 							<string>RyderNameView</string>
+							<string>NSWindow</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

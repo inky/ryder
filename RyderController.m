@@ -6,14 +6,18 @@
 #import "RyderController.h"
 #import "RyderNamer.h"
 
+//static NSString *speakNames = @"speakNames";
+
 @implementation RyderController
+
+@synthesize window;
 
 -(id)init
 {
 	if (self = [super init]) {
 		ryder = [[RyderNamer alloc] init];
 		
-		speechEnabled = NO;  //[[NSUserDefaults standardUserDefaults] boolForKey:@"SpeakNames"];
+		speechEnabled = NO;  //[[NSUserDefaults standardUserDefaults] boolForKey:speakNames];
 		speechSynth = [NSSpeechSynthesizer new];
 		voices = [NSArray arrayWithObjects:
 			@"com.apple.speech.synthesis.voice.Alex",
@@ -58,9 +62,14 @@
 -(IBAction)enableSpeech:(NSButton*)sender
 {
 	speechEnabled = [sender state] ? YES : NO;
-	[[NSUserDefaults standardUserDefaults]
-		setObject:(speechEnabled ? @"YES" : @"NO")
-		forKey:@"SpeakNames"];
+	//[[NSUserDefaults standardUserDefaults] setBool:speechEnabled forKey:speakNames];
+}
+
+-(void)applicationWillFinishLaunching:(NSNotification*)notification
+{
+    [window center];
+    
+    PFMoveToApplicationsFolderIfNecessary();
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication

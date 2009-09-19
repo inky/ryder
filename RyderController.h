@@ -9,6 +9,8 @@
 
 @interface RyderController : NSObject
 {
+    NSWindow *window;
+    
 	IBOutlet RyderNameView *nameView;
 	IBOutlet NSButton *nameButton;
 	
@@ -19,11 +21,14 @@
 	NSArray *voices;
 }
 
+@property (assign) IBOutlet NSWindow *window;
+
 -(id)init;
 
 -(IBAction)newName:(id)sender;
 -(IBAction)enableSpeech:(NSButton*)sender;
 
+-(void)applicationWillFinishLaunching:(NSNotification*)notification;
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication;
 
 // In Interface Builder, make a 'delegate' connection

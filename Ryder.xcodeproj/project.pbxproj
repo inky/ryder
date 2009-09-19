@@ -15,7 +15,6 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		8D2D25721065086400D852C8 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8D2D25711065086400D852C8 /* LICENSE.txt */; };
-		8D81FFD41065048500F953BE /* RyderAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D81FFD31065048500F953BE /* RyderAppDelegate.m */; };
 		8DB3753A0EC4E4BE007B2A1B /* RyderWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB375390EC4E4BE007B2A1B /* RyderWindowView.m */; };
 		8DB375530EC4EBC0007B2A1B /* RyderNamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB375520EC4EBC0007B2A1B /* RyderNamer.m */; };
 		8DB3762B0EC4FDD0007B2A1B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DB376290EC4FDD0007B2A1B /* Localizable.strings */; };
@@ -39,8 +38,6 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Ryder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ryder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2D25711065086400D852C8 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		8D81FFD21065048500F953BE /* RyderAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RyderAppDelegate.h; sourceTree = "<group>"; };
-		8D81FFD31065048500F953BE /* RyderAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RyderAppDelegate.m; sourceTree = "<group>"; };
 		8DB375380EC4E4BE007B2A1B /* RyderWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RyderWindowView.h; sourceTree = "<group>"; };
 		8DB375390EC4E4BE007B2A1B /* RyderWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RyderWindowView.m; sourceTree = "<group>"; };
 		8DB375510EC4EBC0007B2A1B /* RyderNamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RyderNamer.h; sourceTree = "<group>"; };
@@ -77,8 +74,6 @@
 				8DB3765E0EC50188007B2A1B /* RyderNameView.m */,
 				8DB376D50EC509B3007B2A1B /* RyderController.h */,
 				8DB376D60EC509B3007B2A1B /* RyderController.m */,
-				8D81FFD21065048500F953BE /* RyderAppDelegate.h */,
-				8D81FFD31065048500F953BE /* RyderAppDelegate.m */,
 				8DD68FAA1065027500652D29 /* PFMoveApplication.h */,
 				8DD68FAB1065027500652D29 /* PFMoveApplication.m */,
 			);
@@ -222,7 +217,6 @@
 				8DB3765F0EC50188007B2A1B /* RyderNameView.m in Sources */,
 				8DB376D70EC509B3007B2A1B /* RyderController.m in Sources */,
 				8DD68FAC1065027500652D29 /* PFMoveApplication.m in Sources */,
-				8D81FFD41065048500F953BE /* RyderAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
