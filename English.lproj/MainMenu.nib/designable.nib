@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="29"/>
 			<integer value="375"/>
+			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -313,7 +313,7 @@
 										<object class="NSCustomView" id="420550736">
 											<reference key="NSNextResponder" ref="142600028"/>
 											<int key="NSvFlags">274</int>
-											<string key="NSFrame">{{18, 39}, {198, 139}}</string>
+											<string key="NSFrame">{{18, 48}, {198, 130}}</string>
 											<reference key="NSSuperview" ref="142600028"/>
 											<string key="NSClassName">RyderNameView</string>
 										</object>
@@ -389,11 +389,6 @@
 				<string key="NSClassName">RyderController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="106699642">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>windowHeight</string>
-					<string>windowWidth</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
@@ -892,6 +887,7 @@
 					<string>388.IBPluginDependency</string>
 					<string>411.IBPluginDependency</string>
 					<string>412.IBPluginDependency</string>
+					<string>440.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -974,6 +970,7 @@
 					</object>
 					<real value="-3.000000e+00"/>
 					<real value="0.000000e+00"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
