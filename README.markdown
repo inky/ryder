@@ -4,7 +4,7 @@ Ryder
 Macho name generator for OS X. Inspired by _Mystery Science Theatre 3000_ and
 one of the best, worst sci-fi movies of all time: _Space Mutiny._
 
-![Screenshot](http://inky.github.com/images/ryder.png)
+* __[Download page](http://inky.github.com/ryder/)__
 
 
 Requirements
