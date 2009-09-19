@@ -28,9 +28,6 @@
 -(IBAction)newName:(id)sender;
 -(IBAction)enableSpeech:(NSButton*)sender;
 
--(void)applicationWillFinishLaunching:(NSNotification*)notification;
--(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication;
-
 // In Interface Builder, make a 'delegate' connection
 // from File's Owner to Ryder Controller.
 

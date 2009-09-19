@@ -3,6 +3,7 @@
 //  (c) 2008-2009 Liam Cooke
 //  MIT Licensed -- see LICENSE.txt
 
+#import <QuartzCore/QuartzCore.h>
 #import "RyderController.h"
 #import "RyderNamer.h"
 
@@ -14,7 +15,8 @@
 
 -(id)init
 {
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		ryder = [[RyderNamer alloc] init];
 		
 		speechEnabled = NO;  //[[NSUserDefaults standardUserDefaults] boolForKey:speakNames];
@@ -67,18 +69,28 @@
 
 -(void)awakeFromNib
 {
+    [window setDelegate:self];
     [window center];
 }
 
 -(void)applicationWillFinishLaunching:(NSNotification*)notification
 {
     PFMoveToApplicationsFolderIfNecessary();
+    
+    [window setAlphaValue:0.0];
     [window makeKeyAndOrderFront:self];
+    [window.animator setAlphaValue:1.0];
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication
 {
 	return YES;
+}
+
+-(BOOL)windowShouldClose:(id)theWindow
+{
+    //[window.animator setAlphaValue:0.0];
+    return YES;
 }
 
 @end

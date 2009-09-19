@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="371"/>
+			<integer value="372"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -388,7 +388,7 @@
 			<object class="NSCustomObject" id="589998182">
 				<string key="NSClassName">RyderController</string>
 			</object>
-			<object class="NSUserDefaultsController" id="1019343853">
+			<object class="NSUserDefaultsController" id="772382987">
 				<object class="NSMutableArray" key="NSDeclaredKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>windowHeight</string>
@@ -497,14 +497,6 @@
 					<int key="connectionID">390</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="972006081"/>
-						<reference key="destination" ref="589998182"/>
-					</object>
-					<int key="connectionID">392</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">enableSpeech:</string>
 						<reference key="source" ref="589998182"/>
@@ -529,21 +521,13 @@
 					<int key="connectionID">438</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="589998182"/>
-						<reference key="destination" ref="972006081"/>
-					</object>
-					<int key="connectionID">439</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentWidth: values.windowWidth</string>
 						<reference key="source" ref="972006081"/>
-						<reference key="destination" ref="1019343853"/>
+						<reference key="destination" ref="772382987"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="972006081"/>
-							<reference key="NSDestination" ref="1019343853"/>
+							<reference key="NSDestination" ref="772382987"/>
 							<string key="NSLabel">contentWidth: values.windowWidth</string>
 							<string key="NSBinding">contentWidth</string>
 							<string key="NSKeyPath">values.windowWidth</string>
@@ -551,6 +535,22 @@
 						</object>
 					</object>
 					<int key="connectionID">447</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="589998182"/>
+					</object>
+					<int key="connectionID">448</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">window</string>
+						<reference key="source" ref="589998182"/>
+						<reference key="destination" ref="972006081"/>
+					</object>
+					<int key="connectionID">449</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -822,7 +822,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">440</int>
-						<reference key="object" ref="1019343853"/>
+						<reference key="object" ref="772382987"/>
 						<reference key="parent" ref="1049"/>
 					</object>
 				</object>
@@ -1017,7 +1017,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">447</int>
+			<int key="maxID">449</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
