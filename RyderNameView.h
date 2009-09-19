@@ -11,6 +11,7 @@
 	NSFont *font;
 	NSMutableParagraphStyle *parStyle;
 	NSMutableDictionary *fontAttribs;
+    NSMutableDictionary *shadowAttribs;
 }
 
 @property(copy) NSString *name;

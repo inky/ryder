@@ -21,7 +21,12 @@
 		fontAttribs = [NSMutableDictionary new];
 		[fontAttribs setObject:font forKey:NSFontAttributeName];
 		[fontAttribs setObject:parStyle forKey:NSParagraphStyleAttributeName];
+        [fontAttribs setValue:[NSColor blackColor] forKey:NSForegroundColorAttributeName];
 		[fontAttribs setValue:[NSNumber numberWithFloat:-0.5] forKey:NSKernAttributeName];
+        
+        shadowAttribs = [NSMutableDictionary dictionaryWithDictionary:fontAttribs];
+        [shadowAttribs setValue:[NSColor colorWithCalibratedWhite:0.9 alpha:0.5]
+                         forKey:NSForegroundColorAttributeName];
 	}
 	return self;
 }
@@ -42,11 +47,13 @@
     drawRect.origin.y = rect.origin.y + (rect.size.height - stringSize.height)/2;
     
 #ifdef DEBUG
-    [[NSColor whiteColor] set];
+    [[NSColor colorWithCalibratedWhite:0.2 alpha:0.2] set];
     [NSBezierPath strokeRect:rect];
     [NSBezierPath strokeRect:drawRect];
 #endif
     
+	[displayName drawInRect:drawRect withAttributes:shadowAttribs];
+    drawRect.origin.y += 1;
 	[displayName drawInRect:drawRect withAttributes:fontAttribs];
 }
 
