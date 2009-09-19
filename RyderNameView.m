@@ -14,7 +14,7 @@
 	if (self = [super initWithFrame:frame]) {
 		name = @"Blast Hardcheese";
 				
-		font = [NSFont fontWithName:@"HelveticaNeue-CondensedBlack" size:28];
+		font = [NSFont fontWithName:@"HelveticaNeue-CondensedBlack" size:32];
 		parStyle = [[NSMutableParagraphStyle alloc] init];
 		[parStyle setAlignment:NSCenterTextAlignment];
 		
@@ -32,7 +32,18 @@
 {
 	NSString *displayName = [[name uppercaseString]
 		stringByReplacingOccurrencesOfString:@"." withString:@""];
-	[displayName drawInRect:rect withAttributes:fontAttribs];
+    
+    NSSize stringSize = [displayName
+        boundingRectWithSize:rect.size
+                     options:(NSStringDrawingUsesLineFragmentOrigin |
+                              NSStringDrawingDisableScreenFontSubstitution)
+                  attributes:fontAttribs].size;
+    
+    NSRect drawRect = rect;
+    drawRect.size.height = stringSize.height;
+    drawRect.origin.y = rect.origin.y + (rect.size.height - stringSize.height)/2;
+    
+	[displayName drawInRect:drawRect withAttributes:fontAttribs];
 }
 
 @end

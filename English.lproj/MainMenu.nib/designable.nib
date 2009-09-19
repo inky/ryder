@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="372"/>
+			<integer value="375"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -388,7 +388,7 @@
 			<object class="NSCustomObject" id="589998182">
 				<string key="NSClassName">RyderController</string>
 			</object>
-			<object class="NSUserDefaultsController" id="772382987">
+			<object class="NSUserDefaultsController" id="106699642">
 				<object class="NSMutableArray" key="NSDeclaredKeys">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>windowHeight</string>
@@ -524,10 +524,10 @@
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">contentWidth: values.windowWidth</string>
 						<reference key="source" ref="972006081"/>
-						<reference key="destination" ref="772382987"/>
+						<reference key="destination" ref="106699642"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="972006081"/>
-							<reference key="NSDestination" ref="772382987"/>
+							<reference key="NSDestination" ref="106699642"/>
 							<string key="NSLabel">contentWidth: values.windowWidth</string>
 							<string key="NSBinding">contentWidth</string>
 							<string key="NSKeyPath">values.windowWidth</string>
@@ -822,7 +822,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">440</int>
-						<reference key="object" ref="772382987"/>
+						<reference key="object" ref="106699642"/>
 						<reference key="parent" ref="1049"/>
 					</object>
 				</object>
