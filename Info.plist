@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>APPL</string>
 	<key>CFBundleIdentifier</key>
-	<string>ws.boxofjunk.Ryder</string>
+	<string>ws.boxofjunk.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -24,5 +24,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 </dict>
 </plist>
