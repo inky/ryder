@@ -65,10 +65,13 @@
 	//[[NSUserDefaults standardUserDefaults] setBool:speechEnabled forKey:speakNames];
 }
 
--(void)applicationWillFinishLaunching:(NSNotification*)notification
+-(void)awakeFromNib
 {
     [window center];
-    
+}
+
+-(void)applicationWillFinishLaunching:(NSNotification*)notification
+{
     PFMoveToApplicationsFolderIfNecessary();
 }
 

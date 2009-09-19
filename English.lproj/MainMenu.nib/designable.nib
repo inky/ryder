@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="372"/>
+			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -264,7 +264,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{432, 284}, {450, 240}}</string>
+				<string key="NSWindowRect">{{28, 516}, {450, 240}}</string>
 				<int key="NSWTFlags">1946157056</int>
 				<string key="NSWindowTitle">Ryder</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -924,9 +924,9 @@
 					<reference ref="9"/>
 					<string>{74, 862}</string>
 					<string>{{113, 656}, {197, 20}}</string>
-					<string>{{234, 461}, {450, 240}}</string>
-					<string>{{234, 461}, {450, 240}}</string>
-					<reference ref="9"/>
+					<string>{{267, 413}, {450, 240}}</string>
+					<string>{{267, 413}, {450, 240}}</string>
+					<boolean value="YES"/>
 					<string>{{421, 283}, {450, 240}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
