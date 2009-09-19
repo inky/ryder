@@ -388,6 +388,14 @@
 			<object class="NSCustomObject" id="589998182">
 				<string key="NSClassName">RyderController</string>
 			</object>
+			<object class="NSUserDefaultsController" id="1019343853">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>windowHeight</string>
+					<string>windowWidth</string>
+				</object>
+				<bool key="NSSharedInstance">YES</bool>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -527,6 +535,22 @@
 						<reference key="destination" ref="972006081"/>
 					</object>
 					<int key="connectionID">439</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">contentWidth: values.windowWidth</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="1019343853"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="972006081"/>
+							<reference key="NSDestination" ref="1019343853"/>
+							<string key="NSLabel">contentWidth: values.windowWidth</string>
+							<string key="NSBinding">contentWidth</string>
+							<string key="NSKeyPath">values.windowWidth</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">447</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -796,6 +820,11 @@
 						<reference key="object" ref="272486983"/>
 						<reference key="parent" ref="83925883"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">440</int>
+						<reference key="object" ref="1019343853"/>
+						<reference key="parent" ref="1049"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -988,7 +1017,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">439</int>
+			<int key="maxID">447</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
