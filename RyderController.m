@@ -73,6 +73,7 @@
 -(void)applicationWillFinishLaunching:(NSNotification*)notification
 {
     PFMoveToApplicationsFolderIfNecessary();
+    [window makeKeyAndOrderFront:self];
 }
 
 -(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication*)theApplication

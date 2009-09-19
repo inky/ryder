@@ -926,7 +926,7 @@
 					<string>{{113, 656}, {197, 20}}</string>
 					<string>{{267, 413}, {450, 240}}</string>
 					<string>{{267, 413}, {450, 240}}</string>
-					<boolean value="YES"/>
+					<boolean value="NO"/>
 					<string>{{421, 283}, {450, 240}}</string>
 					<reference ref="9"/>
 					<reference ref="9"/>
