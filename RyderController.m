@@ -22,10 +22,12 @@
 		speechEnabled = NO;  //[[NSUserDefaults standardUserDefaults] boolForKey:speakNames];
 		speechSynth = [NSSpeechSynthesizer new];
 		voices = [NSArray arrayWithObjects:
-			@"com.apple.speech.synthesis.voice.Alex",
-			@"com.apple.speech.synthesis.voice.Alex",
-			@"com.apple.speech.synthesis.voice.Bruce",
-			nil];
+                  @"com.apple.speech.synthesis.voice.Alex",
+                  @"com.apple.speech.synthesis.voice.Alex",
+                  @"com.apple.speech.synthesis.voice.Alex",
+                  @"com.apple.speech.synthesis.voice.Bruce",
+                  @"com.apple.speech.synthesis.voice.Bruce",
+                  nil];
 	}
 	return self;
 }

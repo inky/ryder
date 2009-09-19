@@ -22,8 +22,6 @@
 		[fontAttribs setObject:font forKey:NSFontAttributeName];
 		[fontAttribs setObject:parStyle forKey:NSParagraphStyleAttributeName];
 		[fontAttribs setValue:[NSNumber numberWithFloat:-0.5] forKey:NSKernAttributeName];
-        
-		// TODO: center text vertically
 	}
 	return self;
 }
@@ -42,6 +40,12 @@
     NSRect drawRect = rect;
     drawRect.size.height = stringSize.height;
     drawRect.origin.y = rect.origin.y + (rect.size.height - stringSize.height)/2;
+    
+#ifdef DEBUG
+    [[NSColor whiteColor] set];
+    [NSBezierPath strokeRect:rect];
+    [NSBezierPath strokeRect:drawRect];
+#endif
     
 	[displayName drawInRect:drawRect withAttributes:fontAttribs];
 }
