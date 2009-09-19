@@ -3,7 +3,6 @@
 //  (c) 2008-2009 Liam Cooke
 //  MIT Licensed -- see LICENSE.txt
 
-#import <QuartzCore/QuartzCore.h>
 #import "RyderController.h"
 #import "RyderNamer.h"
 
