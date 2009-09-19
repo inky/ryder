@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="375"/>
+			<integer value="371"/>
 			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -264,7 +264,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{28, 516}, {450, 240}}</string>
+				<string key="NSWindowRect">{{277, 356}, {450, 240}}</string>
 				<int key="NSWTFlags">1946157056</int>
 				<string key="NSWindowTitle">Ryder</string>
 				<string key="NSWindowClass">NSWindow</string>

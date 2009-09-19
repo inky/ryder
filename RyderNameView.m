@@ -14,7 +14,7 @@
 	if (self = [super initWithFrame:frame]) {
 		name = @"Blast Hardcheese";
 				
-		font = [NSFont fontWithName:@"HelveticaNeue-CondensedBlack" size:32];
+		font = [NSFont fontWithName:@"Futura-CondensedMedium" size:40];
 		parStyle = [[NSMutableParagraphStyle alloc] init];
 		[parStyle setAlignment:NSCenterTextAlignment];
 		
