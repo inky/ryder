@@ -5,77 +5,122 @@
 //  Created by Andy Kim at Potion Factory LLC on 9/17/09
 //
 //  The contents of this file are dedicated to the public domain.
+//
+//  Contributors:
+//	  Andy Kim
+//    John Brayton
 
 #import "PFMoveApplication.h"
 
 static NSString *AlertSuppressKey = @"moveToApplicationsFolderAlertSuppress";
 
+// Helper functions
+static BOOL IsInApplicationsFolder(NSString *path);
+static BOOL IsInDownloadsFolder(NSString *path);
+
+
+// Main worker function
 void PFMoveToApplicationsFolderIfNecessary()
 {
-	// Skip if user supressed the alert before
+	// Skip if user suppressed the alert before
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:AlertSuppressKey]) return;
 
 	// Path of the bundle
-	NSString *path = [[NSBundle mainBundle] bundlePath];
+	NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
 
-	// Get all Applications directories, most importantly ~/Applications
-	NSArray *allApplicationsDirectories = NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSAllDomainsMask, YES);
+	// File Manager
+	NSFileManager *fm = [NSFileManager defaultManager];
 
-	// If the application is already in some Applications directory, skip.
-	for (NSString *appDirPath in allApplicationsDirectories) {
-		if ([path hasPrefix:appDirPath]) return;
+	// Fail silently if there's no access to delete the original application
+	if (![fm isWritableFileAtPath:bundlePath]) {
+		NSLog(@"No access to delete the app. Not offering to move it.");
+		return;
 	}
+
+	// Skip if the application is already in some Applications folder
+	if (IsInApplicationsFolder(bundlePath)) return;
 
 	// Since we are good to go, get /Applications
 	NSString *applicationsDirectory = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSLocalDomainMask, YES) lastObject];
-	if (applicationsDirectory == nil) {
-		NSLog(@"ERROR -- Could not find the Applications directory");
-		goto fail;
+
+	// If the user is not an Administrator, that user will not be able to put the app in /Applications.
+	// So, offer to put in ~/Applications instead if it exists
+	BOOL useUserApplications = applicationsDirectory == nil || ![fm isWritableFileAtPath:applicationsDirectory];
+
+	if (useUserApplications) {
+		NSLog(@"Can't write to /Applications, checking ~/Applications");
+		applicationsDirectory = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSUserDomainMask, YES) lastObject];
+		NSLog(@"User applicationsDirectory: %@", applicationsDirectory);
+
+		// Fail silently if there's no ~/Applications or if it's not writable
+		if (applicationsDirectory == nil || ![fm isWritableFileAtPath:applicationsDirectory]) {
+			return;
+		}
 	}
 
-	NSString *appBundleName = [path lastPathComponent];
-	NSError *error = nil;
-
-	// Open up the alert
+	// Setup the alert
 	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-	[alert setMessageText:NSLocalizedString(@"Move to Applications folder?", nil)];
-	[alert setInformativeText:NSLocalizedString(@"I can move myself to the Applications folder if you'd like. This will keep your Downloads folder uncluttered.", nil)];
-	[alert setShowsSuppressionButton:YES];
-	[[[alert suppressionButton] cell] setControlSize:NSSmallControlSize];
-	[[[alert suppressionButton] cell] setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
-	[alert addButtonWithTitle:NSLocalizedString(@"Move to Applications Folder", nil)];
-	[alert addButtonWithTitle:NSLocalizedString(@"Do Not Move", nil)];
+	{
+		NSString *informativeText = nil;
+
+		if (!useUserApplications) {
+			[alert setMessageText:NSLocalizedString(@"Move to Applications folder?", nil)];
+			informativeText = NSLocalizedString(@"I can move myself to the Applications folder if you'd like.", nil);
+		}
+		else {
+			[alert setMessageText:NSLocalizedString(@"Move to Applications folder in your Home folder?", nil)];
+			informativeText = NSLocalizedString(@"You don't have permissions to put me in the main Applications folder, but I can move myself to the Applications folder in your Home folder instead.", nil);
+		}
+
+		if (IsInDownloadsFolder(bundlePath)) {
+			informativeText = [informativeText stringByAppendingString:@" "];
+			informativeText = [informativeText stringByAppendingString:NSLocalizedString(@"This will keep your Downloads folder uncluttered", nil)];
+		}
+
+		[alert setInformativeText:informativeText];
+
+		// Add buttons
+		[alert addButtonWithTitle:NSLocalizedString(@"Move to Applications Folder", nil)];
+		[alert addButtonWithTitle:NSLocalizedString(@"Do Not Move", nil)];
+
+		// Setup suppression button
+		[alert setShowsSuppressionButton:YES];
+		[[[alert suppressionButton] cell] setControlSize:NSSmallControlSize];
+		[[[alert suppressionButton] cell] setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
+	}
 
 	if ([alert runModal] == NSAlertFirstButtonReturn) {
 		NSLog(@"Moving myself to the Applications folder");
-		NSFileManager *fm = [NSFileManager defaultManager];
-		NSString *destinationPath = [applicationsDirectory stringByAppendingPathComponent:appBundleName];
 
-		// If a copy already exists in /Applications, put it in the Trash
+		NSString *bundleName = [bundlePath lastPathComponent];
+		NSString *destinationPath = [applicationsDirectory stringByAppendingPathComponent:bundleName];
+
+		// If a copy already exists in the Applications folder, put it in the Trash
 		if ([fm fileExistsAtPath:destinationPath]) {
 			if (![[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
 															  source:applicationsDirectory
 														 destination:@""
-															   files:[NSArray arrayWithObject:appBundleName]
+															   files:[NSArray arrayWithObject:bundleName]
 																 tag:NULL]) {
 				NSLog(@"ERROR -- Could not trash '%@'", destinationPath);
 				goto fail;
 			}
 		}
 
-		// Copy myself to /Applications
-		if (![fm copyItemAtPath:path toPath:destinationPath error:&error]) {
+		// Copy myself to the Applications folder
+		NSError *error = nil;
+		if (![fm copyItemAtPath:bundlePath toPath:destinationPath error:&error]) {
 			NSLog(@"ERROR -- Could not copy myself to /Applications (%@)", error);
 			goto fail;
 		}
 
 		// Put myself in Trash
 		if (![[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
-														  source:[path stringByDeletingLastPathComponent]
+														  source:[bundlePath stringByDeletingLastPathComponent]
 													 destination:@""
-														   files:[NSArray arrayWithObject:appBundleName]
+														   files:[NSArray arrayWithObject:bundleName]
 															 tag:NULL]) {
-			NSLog(@"ERROR -- Could not trash '%@'", path);
+			NSLog(@"ERROR -- Could not trash '%@'", bundlePath);
 			goto fail;
 		}
 
@@ -83,10 +128,7 @@ void PFMoveToApplicationsFolderIfNecessary()
 		NSString *executableName = [[[NSBundle mainBundle] executablePath] lastPathComponent];
 		NSString *relaunchPath = [destinationPath stringByAppendingPathComponent:[NSString stringWithFormat:@"Contents/MacOS/%@", executableName]];
 
-		[NSTask launchedTaskWithLaunchPath:relaunchPath
-								 arguments:[NSArray arrayWithObjects:destinationPath,
-											[NSString stringWithFormat:@"%d", [[NSProcessInfo processInfo] processIdentifier]],
-											nil]]; // The %d is not a 64-bit bug. The call to processIdentifier returns an int
+		[NSTask launchedTaskWithLaunchPath:relaunchPath arguments:[NSArray array]];
 		[NSApp terminate:nil];
 	}
 	else {
@@ -105,4 +147,31 @@ fail:
 		[alert setMessageText:NSLocalizedString(@"Could not move to Applications folder", nil)];
 		[alert runModal];
 	}
+}
+
+#pragma mark -
+#pragma mark Helper Functions
+
+static BOOL IsInApplicationsFolder(NSString *path)
+{
+	NSArray *allApplicationsDirectories = NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSAllDomainsMask, YES);
+
+	// If the application is already in some Applications directory, skip.
+	for (NSString *appDirPath in allApplicationsDirectories) {
+		if ([path hasPrefix:appDirPath]) return YES;
+	}
+
+	return NO;
+}
+
+static BOOL IsInDownloadsFolder(NSString *path)
+{
+	NSArray *allDownloadsDirectories = NSSearchPathForDirectoriesInDomains(NSDownloadsDirectory, NSAllDomainsMask, YES);
+
+	// If the application is already in some Applications directory, skip.
+	for (NSString *downloadsDirPath in allDownloadsDirectories) {
+		if ([path hasPrefix:downloadsDirPath]) return YES;
+	}
+
+	return NO;
 }
